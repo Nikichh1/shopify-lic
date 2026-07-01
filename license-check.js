@@ -1,15 +1,12 @@
-(function () {
-  if (!window.APP_LICENSE) {
-    document.documentElement.innerHTML = "";
-    return;
-  }
-
-  const expectedKey = "robotnik-2026";
-
-  if (
-    window.APP_LICENSE.status !== "active" ||
-    window.APP_LICENSE.licenseKey !== expectedKey
-  ) {
-    document.documentElement.innerHTML = "";
-  }
-})();
+fetch("https://nikichh1.github.io/shopify-lic/blob/main/license.js")
+  .then(res => res.json())
+  .then(data => {
+    if (!data.valid || data.key !== "robotnik-2025") {
+      document.body.innerHTML = "";
+      console.warn("Invalid license.");
+    }
+  })
+  .catch(() => {
+    document.body.innerHTML = "";
+    console.error("License check failed.");
+  });

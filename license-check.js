@@ -1,4 +1,4 @@
-fetch("https://github.com/Nikichh1/shopify-lic/edit/main/license.json")
+fetch("https://nikichh1.github.io/shopify-lic/license.json")
   .then(res => res.json())
   .then(data => {
     if (!data.valid || data.key !== "robotnik-2025") {
